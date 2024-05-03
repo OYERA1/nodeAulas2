@@ -8,14 +8,14 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Transactions {
   id        String   @id @default(cuid())
   title     String
-  amount    Decimal
+  amount    Decimal @db.Decimal(10, 2)
   createdAt DateTime @default(now())
   sessionId String
 }

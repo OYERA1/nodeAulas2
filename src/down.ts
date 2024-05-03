@@ -1,4 +1,4 @@
-import { prisma } from '../lib/utils'
+import { prisma } from './lib/utils'
 
 export const down = async () => {
 	await prisma.transactions.deleteMany()
